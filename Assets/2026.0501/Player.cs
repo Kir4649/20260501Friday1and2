@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     private float speed = 1.0f;
-    private float bulletspeed = 2.0f;
+    //private float bulletspeed = 2.0f;
     private Vector2 moveInput = Vector2.zero;
     private Transform _transform;
     [SerializeField]
@@ -29,8 +29,12 @@ public class Player : MonoBehaviour
     }
     public void OnAttack(InputAction.CallbackContext context)
     {
+        shot();
+    }
+    public void shot()
+    {
         GameObject Boll = Instantiate(boll, transform.position, Quaternion.identity);
-        Rigidbody R = Boll.GetComponent<Rigidbody>();
-        R.AddForce(this.transform.forward * bulletspeed);
+        Rigidbody rb = Boll.GetComponent<Rigidbody>();
+        //srb.AddForce(this.transform.forward * bulletspeed);
     }
 }
