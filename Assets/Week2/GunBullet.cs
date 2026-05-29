@@ -18,6 +18,7 @@ public class GunBullet : MonoBehaviour
         // ボタンを押した瞬間
         if (context.performed)
         {
+            //レイを目に見えるようにする
             Debug.DrawRay(gameObject.transform.position, Vector3.up * 6, Color.blue, 0.1f);
 
             // マウス位置取得
@@ -27,12 +28,12 @@ public class GunBullet : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(mousePos);
 
             RaycastHit hit;
+            int layerMask = ~(1 << 3);  // レイヤーマスクを作成          
 
             // Raycast判定
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
             {
-
-                //Destroy(hit.collider.gameObject);
+                Destroy(hit.collider.gameObject);
             }
         }
     }
