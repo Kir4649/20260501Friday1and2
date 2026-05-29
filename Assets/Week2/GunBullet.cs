@@ -18,7 +18,7 @@ public class GunBullet : MonoBehaviour
         // ボタンを押した瞬間
         if (context.performed)
         {
-            //レイを目に見えるようにする
+            //レイを目に見えるようにする 
             Debug.DrawRay(gameObject.transform.position, Vector3.up * 6, Color.blue, 0.1f);
 
             // マウス位置取得
